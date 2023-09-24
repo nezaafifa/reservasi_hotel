@@ -4,6 +4,7 @@ class User extends CI_Controller {
     
     function __construct() {
         parent::__construct();
+        $this->load->library('form_validation');
         $this->load->model('m_user');
     }
     function index() {
@@ -32,7 +33,7 @@ class User extends CI_Controller {
         } else {
         $data = array(
             'username' => $this->input->post('username'),
-            'password' => md5($this->input->post('password')),
+            'password' => password_hash($this->input->post('password'), PASSWORD_DEFAULT),
             'nama' => $this->input->post('nama'),
             'alamat' => $this->input->post('alamat'),
         );
