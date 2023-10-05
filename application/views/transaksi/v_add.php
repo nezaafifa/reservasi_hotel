@@ -146,10 +146,6 @@
 <script type="text/javascript">
   var transaksi_form;
   $(document).ready(function() {
-    // $('#kamar_id').change(function(){
-    //     var a = $(this).val();
-    //     alert(a)
-    // })
 
     var transaksi_form = $("#transaksi_form").validate({
       rules: {

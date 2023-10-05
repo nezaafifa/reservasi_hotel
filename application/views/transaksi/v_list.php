@@ -58,9 +58,8 @@
                         <td><?= $value['lama_inap']?></td>
                           <td><?= $value['petugas_nm']?></td>
                         <td>
-                            <a href="<?= base_url('transaksi/edit/'.$value['transhotel_id']) ?>" class="btn btn-xs btn-success"><i class="fa fa-pencil"></i> </a>
-                            <a href="javascript:void(0)" class="btn btn-danger btn-xs btn-table btn-delete" data-transhotel-id="<?= $value['transhotel_id'] ?>" title="Hapus Data"><i class="fa fa-sm fa-trash"></i></a>
-                            <a href="<?= base_url('transaksi/show/'.$value['transhotel_id']) ?>" class="btn btn-xs btn-info"><i class="fa fa-eye"></i> </a>
+                            <a href="<?= base_url('transaksi/edit/'.$value['transhotel_id']) ?>" class="btn btn-xs btn-success"><i class="fa fa-pencil fa fa-eye"></i> </a>
+                            <a href="<?= base_url('transaksi/delete/'.$value['transhotel_id'])?>" class="btn btn-danger btn-xs"><i class="fa fa-sm fa-trash"></i></a>
                         </td>
                     </tr>
                     <?php }?>
@@ -76,41 +75,3 @@
 
     </section>
 </div>
-
-<script>
-   $(document).ready(function() {
-        // delete
-        $('.btn-delete').on('click', function(e) {
-            e.preventDefault();
-            Swal.fire({
-                title: 'Apakah Anda yakin?',
-                text: "Aksi ini tidak bisa dikembalikan. Data ini mungkin terhubung dengan data lain.",
-                type: 'warning',
-                showCancelButton: true,
-                confirmButtonColor: '#eb3b5a',
-                cancelButtonColor: '#b2bec3',
-                confirmButtonText: 'Hapus',
-                cancelButtonText: 'Batal',
-                customClass: 'swal-wide'
-            }).then((result) => {
-                if (result.value) {
-                    var transhotel_id = $(this).attr("data-transhotel-id");
-                    //
-                    $('#v_list').html('<tr><td class="text-center" colspan="99"><i class="fas fa-spin fa-spinner"></i><br>Loading</td></tr>');
-                    $.post('<?= base_url('transaksi/delete') ?>', {
-                        detail_id: detail_id,
-                        transhotel_id: transhotel_id
-                    }, function(data) {
-                        $.toast({
-                            heading: 'Sukses',
-                            text: 'Data berhasil dihapus.',
-                            icon: 'success',
-                            position: 'top-right'
-                        })
-                        $('#v_list').html(data.html);
-                    }, 'json');
-                }
-            })
-        })
-      });
-</script>

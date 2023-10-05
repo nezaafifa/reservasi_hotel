@@ -22,12 +22,6 @@ class M_transaksi extends CI_Model
     }
     function detail($trans_id)
     {
-        // $this->db->select('*');
-        // $this->db->from('trans_hotel');
-        // $this->db->join('tamu', 'tamu.tamu_id = trans_hotel.tamu_id', 'left');
-        // // $this->db->join('jenis_kamar', 'kamar.jeniskamar_id = jenis_kamar.jeniskamar_id', 'left');
-        // $this->db->where('trans_id', $trans_id);
-        // return $this->db->get()->row();
         $result = $this->db->query(
             "SELECT 
                 a.*,
@@ -44,15 +38,6 @@ class M_transaksi extends CI_Model
         )->row_array();
         return $result;
     }
-    function add($data)
-    {
-        $this->db->insert('trans_hotel', $data);
-    }
-    function edit($data)
-    {
-        $this->db->where('transhotel_id', $data['transhotel_id']);
-        $this->db->update('trans_hotel', $data);
-    }
     function delete($data)
     {
         $this->db->where('transhotel_id', $data['transhotel_id']);
@@ -60,7 +45,6 @@ class M_transaksi extends CI_Model
     }
     public function get_kamar($kamar_nm)
     {
-        // var_dump($kamar_nm);
         $sql = "SELECT a.*,b.jeniskamar_nama FROM kamar a LEFT JOIN jenis_kamar b on a.jeniskamar_id = b.jeniskamar_id WHERE b.jeniskamar_nama LIKE '%$kamar_nm%'";
         $query = $this->db->query($sql);
         $result = $query->result_array();
@@ -75,25 +59,9 @@ class M_transaksi extends CI_Model
         return $res;
     }
 
-    // public function invoice_no()
-    // {
-    //     $sql = "SELECT MAX(MID(transhotel_id,9,4)) AS transhotel_id FROM trans_hotel WHERE MID(transhotel_id,3,6) = DATE_FORMAT(CURDATE(), '%y%m%d')";
-    //     $query = $this->db->query($sql);
-    //     if ($query->num_rows() > 0) {
-    //         $row = $query->row();
-    //         $n = ((int)$row->transhotel_id) + 1;
-    //         $no = sprintf("%'.04d", $n);
-    //     } else {
-    //         $no = "0001";
-    //     }
-    //     $invoice = "INV" . date('ymd') . $no;
-    //     return $invoice;
-    // }
-
     public function save_transaksi()
     {
         $data = $this->input->post();
-        // echo '<pre>' . var_export($data, true) . '</pre>';die;
         $cek_transaksi_no_last = $this->db->query("SELECT transaksi_no FROM trans_hotel WHERE DATE(transaksi_tgl) = '" . to_date(@$data['transaksi_tgl'], '', 'date') . "' ORDER BY transaksi_no DESC LIMIT 1")->row_array();
         if (@$cek_transaksi_no_last['transaksi_no'] != '') {
             $transaksi_no = @$cek_transaksi_no_last['transaksi_no'] + 1;
@@ -113,23 +81,18 @@ class M_transaksi extends CI_Model
             'keterangan' => @$data['keterangan'],
         );
 
-        // echo '<pre>' . var_export($d, true) . '</pre>';die;
         $this->db->insert('trans_hotel', @$d);
         return $d['transhotel_id'];
-        // retur
     }
 
     function RemoveSpecialChar($str)
     {
 
-        // Using str_replace() function
-        // to replace the word
         $res = str_replace(array(
             '\'', '"',
             ',', ';', '<', '>'
         ), ' ', $str);
 
-        // Returning the result
         return $res;
     }
 
@@ -158,8 +121,6 @@ class M_transaksi extends CI_Model
     {
         $data = $this->input->post();
         $harga = $this->db->query("SELECT harga FROM kamar WHERE kamar_id = '" . @$data['kamar_id'] . "'")->row_array()['harga'];
-        // var_dump($data);
-        // die;
         if ($data['detail_id'] == '') {
             $d = array(
                 'transhotel_id' => @$data['transhotel_id'],
@@ -178,8 +139,6 @@ class M_transaksi extends CI_Model
                 'harga' => @$harga,
                 'total_biaya' => @$harga * @$data['lama_inap'],
             );
-            // var_dump($d);
-            // die;
             $this->db->where('detail_id', @$data['detail_id'])->update('trans_hotel_detail', @$d);
         }
     }
@@ -208,7 +167,6 @@ class M_transaksi extends CI_Model
 
     public function get_tamu($tamu_nm)
     {
-        // var_dump($kamar_nm);
         $sql = "SELECT a.* FROM tamu a WHERE a.tamu_nama LIKE '%$tamu_nm%'";
         $query = $this->db->query($sql);
         $result = $query->result_array();

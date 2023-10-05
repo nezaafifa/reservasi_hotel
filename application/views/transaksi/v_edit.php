@@ -117,6 +117,9 @@
       <div class="col-lg-8">
         <div class="box box-widget">
           <div class="box-body">
+            <div class="box-header">
+                <h3 class="box-title"> Detail Transaksi</h3>
+            </div>
             <div class="table-responsive">
               <table class="table table-bordered table-sm">
                 <thead>
@@ -261,29 +264,6 @@
       }
     });
 
-    // $('#kamar_id').select2({
-    //   ajax: {
-    //     url: "<?= base_url() ?>/transaksi/ajax/kamar_cek",
-    //     dataType: "json",
-    //     data: function(params) {
-    //       return {
-    //         kamar_nm: params.term
-    //       }
-    //     },
-    //     processResults: function(data) {
-    //       return {
-    //         results: data
-    //       }
-    //     }
-    //   }
-    // }).on('change', function(data) {
-    //   var selected = $(this).select2('data');
-    //   $.each(selected, function(index, value) {
-    //     $("#harga").val(value.harga);
-    //     // $("#harga_edit").val(value.harga);
-    //     // count_jumlah_total();
-    //   });
-    // });
     $('#kamar_id').select2({
       ajax: {
         url: "<?= base_url() ?>/transaksi/ajax/kamar_cek",
@@ -318,17 +298,6 @@
       }
     });
 
-    // $('#lama_inap').on('keyup', function() {
-    //   if ($("#harga").val() == '') {
-    //     alert('mohon pilih kamar');
-    //   } else {
-    //     count_jumlah_total();
-    //   }
-    // });
-    // $('#harga').on('change', function() {
-    //   count_jumlah_total();
-    // });
-
     $(".datetimepicker").daterangepicker({
       timePicker: true,
       timePicker24Hour: true,
@@ -346,18 +315,6 @@
 
     transaksi_kamar_data('<?= @$transaksi['transhotel_id'] ?>');
   });
-
-  // function count_jumlah_total() {
-  //   var harga = $("#harga").val();
-  //   var lama_inap = $("#lama_inap").val();
-  //   var total_harga = harga * lama_inap;
-
-  //   $("#total_biaya").val(total_harga);
-  // }
-
-  // function stringToNumber() {
-  //   return +s;
-  // }
 
   function transaksi_kamar_data(transhotel_id = '') {
     // alert(transhotel_id);
