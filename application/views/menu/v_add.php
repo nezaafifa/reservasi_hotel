@@ -37,7 +37,7 @@
                 </div>
                 <div class="form-group">
                   <label for="ket">Keterangan</label>
-                  <input type="text" class="form-control" id="ket" name="ket" placeholder="Isi Keterangan Makanan" required>
+                  <input type="text" class="form-control" id="keterangan" name="keterangan" placeholder="Isi Keterangan Makanan" required>
                 </div>
               </div>
               <!-- /.box-body -->

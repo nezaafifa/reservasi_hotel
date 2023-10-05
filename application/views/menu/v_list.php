@@ -51,10 +51,10 @@
                         <td><?= $no++ ?></td>
                         <td><?= $value->nama_makanan?></td>
                         <td><?= $value->harga?></td>
-                        <td><?= $value->ket?></td>
+                        <td><?= $value->keterangan?></td>
                         <td>
-                            <a href="<?= base_url('menu/edit/'.$value->id_menu) ?>" class="btn btn-xs btn-success"><i class="fa fa-pencil"></i> </a>
-                            <a href="<?= base_url('menu/delete/'.$value->id_menu) ?>" onclick="return confirm('Apakah data ini akan dihapus ???')" class="btn btn-xs btn-danger"><i class="fa fa-trash"></i> </a>
+                            <a href="<?= base_url('menu/edit/'.$value->menu_id) ?>" class="btn btn-xs btn-success"><i class="fa fa-pencil"></i> </a>
+                            <a href="<?= base_url('menu/delete/'.$value->menu_id) ?>" onclick="return confirm('Apakah data ini akan dihapus ???')" class="btn btn-xs btn-danger"><i class="fa fa-trash"></i> </a>
                         </td>
                     </tr>
                     <?php }?>

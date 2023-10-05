@@ -18,7 +18,7 @@
       <div class="col-xs-12">
           <div class="box">
             <div class="box-header">
-              <h3 class="box-title"> Data Menu</h3>
+              <h3 class="box-title"> Data Tamu</h3>
             </div>
             <div class="panel-heading">
                 <a href="<?= base_url('tamu/add') ?>" class="btn btn-primary btn-sm"><i class="fa fa-plus"></i> Add</a>
@@ -51,14 +51,14 @@
                 <?php $no=1; foreach ($tamu as $key => $value) { ?>
                     <tr>
                         <td><?= $no++ ?></td>
-                        <td><?= $value->nama_tamu?></td>
+                        <td><?= $value->tamu_nama?></td>
                         <td><?= $value->jns_kelamin?></td>
                         <td><?= $value->warganegaraan?></td>
                         <td><?= $value->alamat?></td>
-                        <td><?= $value->tlp?></td>
+                        <td><?= $value->no_tlp?></td>
                         <td>
-                            <a href="<?= base_url('tamu/edit/'.$value->id_tamu) ?>" class="btn btn-xs btn-success"><i class="fa fa-pencil"></i> </a>
-                            <a href="<?= base_url('tamu/delete/'.$value->id_tamu) ?>" onclick="return confirm('Apakah data ini akan dihapus ???')" class="btn btn-xs btn-danger"><i class="fa fa-trash"></i> </a>
+                            <a href="<?= base_url('tamu/edit/'.$value->tamu_id) ?>" class="btn btn-xs btn-success"><i class="fa fa-pencil"></i> </a>
+                            <a href="<?= base_url('tamu/delete/'.$value->tamu_id) ?>" onclick="return confirm('Apakah data ini akan dihapus ???')" class="btn btn-xs btn-danger"><i class="fa fa-trash"></i> </a>
                         </td>
                     </tr>
                     <?php }?>

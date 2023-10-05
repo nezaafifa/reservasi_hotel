@@ -25,22 +25,22 @@
             <?php 
             echo validation_errors('<div class="alert alert-danger alert-dismissible">
             <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>','</div>');
-            echo form_open_multipart('kamar/edit/'.$kamar->id_kamar);
+            echo form_open_multipart('kamar/edit/'.$kamar->kamar_id);
             ?>
             <!-- form start -->
               <div class="box-body">
                 <div class="form-group">
-                  <label for="harga">Harga</label>
-                  <input type="text" class="form-control" id="harga" name="harga" value="<?= $kamar->harga?>" required>
-                </div>
-                <div class="form-group">
-                  <label for="id_jeniskamar">Nama Kamar</label>
-                  <select name="id_jeniskamar" class="form-control" >
-                        <option value="<?= $kamar->id_jeniskamar?>"><?= $kamar->nama_kamar?></option>
+                  <label for="jeniskamar_id">Nama Kamar</label>
+                  <select name="jeniskamar_id" class="form-control" >
+                        <option value="<?= $kamar->jeniskamar_id?>"><?= $kamar->jeniskamar_nama?></option>
                         <?php foreach($jenis_kamar as $key => $value) { ?>
-                        <option value="<?= $value->id_jeniskamar ?>"><?= $value->nama_kamar?></option>
+                        <option value="<?= $value->jeniskamar_id ?>"><?= $value->jeniskamar_nama?></option>
                         <?php } ?>
                     </select>
+                </div>
+                <div class="form-group">
+                  <label for="harga">Harga</label>
+                  <input type="text" class="form-control" id="harga" name="harga" value="<?= $kamar->harga?>" required>
                 </div>
               </div>
               <!-- /.box-body -->

@@ -28,17 +28,17 @@
             <!-- form start -->
               <div class="box-body">
                 <div class="form-group">
-                  <label for="harga">Harga</label>
-                  <input type="text" class="form-control" id="harga" name="harga" placeholder="Isi Harga" required>
-                </div>
-                <div class="form-group">
-                  <label for="id_jeniskamar">Nama Kamar</label>
-                  <select name="id_jeniskamar" class="form-control">
-                        <option value="">-- pilih Nama Kamar --</option>
+                  <label for="jeniskamar_id">Nama Jenis Kamar</label>
+                  <select name="jeniskamar_id" class="form-control">
+                        <option value="">-- pilih Nama Jenis Kamar --</option>
                         <?php foreach($jenis_kamar as $key => $value) { ?>
-                        <option value="<?= $value->id_jeniskamar ?>"><?= $value->nama_kamar?></option>
+                        <option value="<?= $value->jeniskamar_id ?>"><?= $value->jeniskamar_nama?></option>
                         <?php } ?>
                     </select>
+                </div>
+                 <div class="form-group">
+                  <label for="harga">Harga</label>
+                  <input type="text" class="form-control" id="harga" name="harga" placeholder="Isi Harga" required>
                 </div>
               </div>
               <!-- /.box-body -->

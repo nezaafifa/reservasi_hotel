@@ -40,8 +40,8 @@
                 <thead>
                     <tr>
                         <th>No.</th>
-                        <th>Harga</th>
                         <th>Nama Kamar</th>
+                        <th>Harga</th>
                         <th>Action</th>
                     </tr>
                 </thead>
@@ -49,11 +49,11 @@
                 <?php $no=1; foreach ($kamar as $key => $value) { ?>
                     <tr>
                         <td><?= $no++ ?></td>
+                        <td><?= $value->jeniskamar_nama?></td>
                         <td><?= $value->harga?></td>
-                        <td><?= $value->nama_kamar?></td>
                         <td>
-                            <a href="<?= base_url('kamar/edit/'.$value->id_kamar) ?>" class="btn btn-xs btn-success"><i class="fa fa-pencil"></i> </a>
-                            <a href="<?= base_url('kamar/delete/'.$value->id_kamar) ?>" onclick="return confirm('Apakah data ini akan dihapus ???')" class="btn btn-xs btn-danger"><i class="fa fa-trash"></i> </a>
+                            <a href="<?= base_url('kamar/edit/'.$value->kamar_id) ?>" class="btn btn-xs btn-success"><i class="fa fa-pencil"></i> </a>
+                            <a href="<?= base_url('kamar/delete/'.$value->kamar_id) ?>" onclick="return confirm('Apakah data ini akan dihapus ???')" class="btn btn-xs btn-danger"><i class="fa fa-trash"></i> </a>
                         </td>
                     </tr>
                     <?php }?>

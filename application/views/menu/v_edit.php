@@ -23,7 +23,7 @@
             </div>
             <!-- /.box-header -->
             <?php 
-            echo form_open_multipart('menu/edit/'.$menu->id_menu);
+            echo form_open_multipart('menu/edit/'.$menu->menu_id);
             ?>
             <!-- form start -->
               <div class="box-body">
@@ -37,7 +37,7 @@
                 </div>
                 <div class="form-group">
                   <label for="ket">Keterangan</label>
-                  <input type="text" class="form-control" id="ket" name="ket" value="<?= $menu->ket?>" required>
+                  <input type="text" class="form-control" id="keterangan" name="keterangan" value="<?= $menu->keterangan?>" required>
                 </div>
               </div>
               <!-- /.box-body -->

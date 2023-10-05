@@ -55,8 +55,8 @@
                         <td><?= $value->nama?></td>
                         <td><?= $value->alamat?></td>
                         <td>
-                            <a href="<?= base_url('user/edit/'.$value->id_user) ?>" class="btn btn-xs btn-success"><i class="fa fa-pencil"></i> </a>
-                            <a href="<?= base_url('user/delete/'.$value->id_user) ?>" onclick="return confirm('Apakah data ini akan dihapus ???')" class="btn btn-xs btn-danger"><i class="fa fa-trash"></i> </a>
+                            <a href="<?= base_url('user/edit/'.$value->user_id) ?>" class="btn btn-xs btn-success"><i class="fa fa-pencil"></i> </a>
+                            <a href="<?= base_url('user/delete/'.$value->user_id) ?>" onclick="return confirm('Apakah data ini akan dihapus ???')" class="btn btn-xs btn-danger"><i class="fa fa-trash"></i> </a>
                         </td>
                     </tr>
                     <?php }?>

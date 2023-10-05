@@ -29,7 +29,7 @@
               <div class="box-body">
                 <div class="form-group">
                   <label for="nama_kamar">Nama Kamar</label>
-                  <input type="text" class="form-control" id="nama_kamar" name="nama_kamar" placeholder="Isi Nama Kamar" required>
+                  <input type="text" class="form-control" id="jeniskamar_nama" name="jeniskamar_nama" placeholder="Isi Nama Kamar" required>
                 </div>
                 <div class="form-group">
                   <label for="fasilitas">Fasilitas</label>

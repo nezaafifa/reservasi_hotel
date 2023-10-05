@@ -4,6 +4,9 @@ class Tamu extends CI_Controller {
     
     function __construct() {
         parent::__construct();
+        if(!$this->session->userdata('username')){
+            redirect('login');
+        }
         $this->load->model('m_tamu');
     }
     function index() {
@@ -15,14 +18,15 @@ class Tamu extends CI_Controller {
         );
     $this->load->view('template/v_wrapper', $data,FALSE);
     }
-    function add() {
-		$this->form_validation->set_rules('nama_tamu', 'Nama Tamu','required');
+    public function add() {
+		$this->form_validation->set_rules('tamu_nama', 'Nama Tamu','required');
 		$this->form_validation->set_rules('jns_kelamin', 'Jenis Kelamin','required');
-		$this->form_validation->set_rules('warganegaraan', 'Warganegaraan','required');
+		$this->form_validation->set_rules('wargenegaraan', 'Warganegaraan','required');
 		$this->form_validation->set_rules('alamat', 'Alamat','required');
-		$this->form_validation->set_rules('tlp', 'Telepon','required');
+		$this->form_validation->set_rules('no_tlp', 'Telepon','required');
 
         if($this->form_validation->run() == FALSE) {
+            
             $data = array(
                 'title' => 'Hotel Biru',
                 'title2' => 'Add Tamu',
@@ -30,52 +34,69 @@ class Tamu extends CI_Controller {
                 'isi' => 'tamu/v_add'
             );
             $this->load->view('template/v_wrapper', $data,FALSE);
-        } else {
+        }
+    }
+    public function add_tambah(){
+        // echo "hello worlds";
         $data = array(
-            'nama_tamu' => $this->input->post('nama_tamu'),
+            'tamu_nama' => $this->input->post('tamu_nama'),
             'jns_kelamin' => $this->input->post('jns_kelamin'),
             'warganegaraan' => $this->input->post('warganegaraan'),
             'alamat' => $this->input->post('alamat'),
-            'tlp' => $this->input->post('tlp'),
+            'no_tlp' => $this->input->post('no_tlp'),
         );
         $this->m_tamu->add($data);
         $this->session->set_flashdata('pesan', 'Data Berhasil Ditambahkan !!!');
         redirect('tamu');
-        }
     }
-    function edit($id_tamu) {
-        $this->form_validation->set_rules('nama_tamu', 'Nama Tamu', 'required');
+    // function aksi_tambah(){
+    //     $this->load->view('tamu/v_add');
+    // }
+    public function edit($tamu_id) {
+        $this->form_validation->set_rules('tamu_nama', 'Nama Tamu', 'required');
         $this->form_validation->set_rules('jns_kelamin', 'Jenis Kelamin', 'required');
-        $this->form_validation->set_rules('warganegaraan', 'Warganegaraan', 'required');
+        $this->form_validation->set_rules('wargenegaraan', 'Warganegaraan', 'required');
         $this->form_validation->set_rules('alamat', 'Alamat', 'required');
-        $this->form_validation->set_rules('tlp', 'Telepon', 'required');
+        $this->form_validation->set_rules('no_tlp', 'Telepon', 'required');
         
         if ($this->form_validation->run() == FALSE) {
             $data = array(
                 'title' => 'Hotel Biru',
                 'title2' => 'Edit Tamu',
-                'tamu' => $this->m_tamu->detail($id_tamu), 
+                'tamu' => $this->m_tamu->detail($tamu_id), 
                 'isi' => 'tamu/v_edit'
             );
             $this->load->view('template/v_wrapper', $data, FALSE);
-        } else {
-            $data = array(
-                'id_tamu' => $id_tamu,
-                'nama_tamu' => $this->input->post('nama_tamu'),
-                'warganegaraan' => $this->input->post('warganegaraan'),
-                'alamat' => $this->input->post('alamat'),
-                'tlp' => $this->input->post('tlp'),
-            );
-            $this->m_tamu->edit($data);
-            $this->session->set_flashdata('pesan', 'Data Berhasil Diedit !!!');
-            redirect('tamu');
+            // $data = array(
+            //     'tamu_id' => $tamu_id,
+            //     'tamu_nama' => $this->input->post('tamu_nama'),
+            //     'jns_kelamin' => $this->input->post('jns_kelamin'),
+            //     'wargenegaraan' => $this->input->post('wargenegaraan'),
+            //     'alamat' => $this->input->post('alamat'),
+            //     'no_tlp' => $this->input->post('no_tlp'),
+            // );
+            // $this->m_tamu->edit($data);
+            // $this->session->set_flashdata('pesan', 'Data Berhasil Diedit !!!');
+            // redirect('tamu');
         }
     }
-    
-    
-    function delete($id_tamu) {
+    public function aksi_edit($tamu_id){
         $data = array(
-            'id_tamu' => $id_tamu,
+            'tamu_id' => $tamu_id,
+            'tamu_nama' => $this->input->post('tamu_nama'),
+            'jns_kelamin' => $this->input->post('jns_kelamin'),
+            'warganegaraan' => $this->input->post('warganegaraan'),
+            'alamat' => $this->input->post('alamat'),
+            'no_tlp' => $this->input->post('no_tlp'),
+        );
+        $this->m_tamu->edit($data);
+        $this->session->set_flashdata('pesan', 'Data Berhasil Diedit !!!');
+        redirect('tamu');
+    }
+    
+    function delete($tamu_id) {
+        $data = array(
+            'tamu_id' => $tamu_id,
         );
         $this->m_tamu->delete($data);
         $this->session->set_flashdata('pesan', 'Data Berhasil Dihapus !!!');

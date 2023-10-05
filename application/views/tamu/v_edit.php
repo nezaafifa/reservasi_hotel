@@ -23,13 +23,13 @@
             </div>
             <!-- /.box-header -->
             <?php 
-            echo form_open_multipart('tamu/edit/'.$tamu->id_tamu);
+            echo form_open_multipart('tamu/aksi_edit/'.$tamu->tamu_id);
             ?>
             <!-- form start -->
               <div class="box-body">
                 <div class="form-group">
-                  <label for="nama_tamu">Nama Tamu</label>
-                  <input type="text" class="form-control" id="nama_tamu" name="nama_tamu" value="<?= $tamu->nama_tamu?>" required>
+                  <label for="tamu_nama">Nama Tamu</label>
+                  <input type="text" class="form-control" id="tamu_nama" name="tamu_nama" value="<?= $tamu->tamu_nama?>" required>
                 </div>
                 <div class="form-group">
                   <label for="jns_kelamin">Jenis Kelamin</label>
@@ -44,8 +44,8 @@
                   <input type="text" class="form-control" id="alamat" name="alamat" value="<?= $tamu->alamat?>" required>
                 </div>
                 <div class="form-group">
-                  <label for="tlp">Telepon</label>
-                  <input type="text" class="form-control" id="tlp" name="tlp" value="<?= $tamu->tlp?>" required>
+                  <label for="no_tlp">Telepon</label>
+                  <input type="text" class="form-control" id="no_tlp" name="no_tlp" value="<?= $tamu->no_tlp?>" required>
                 </div>
               </div>
               <!-- /.box-body -->

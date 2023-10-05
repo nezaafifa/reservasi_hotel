@@ -48,11 +48,11 @@
                 <?php $no=1; foreach ($jenis_kamar as $key => $value) { ?>
                     <tr>
                         <td><?= $no++ ?></td>
-                        <td><?= $value->nama_kamar?></td>
+                        <td><?= $value->jeniskamar_nama?></td>
                         <td><?= $value->fasilitas?></td>
                         <td>
-                            <a href="<?= base_url('jenis_kamar/edit/'.$value->id_jeniskamar) ?>" class="btn btn-xs btn-success"><i class="fa fa-pencil"></i> </a>
-                            <a href="<?= base_url('jenis_kamar/delete/'.$value->id_jeniskamar) ?>" onclick="return confirm('Apakah data ini akan dihapus ???')" class="btn btn-xs btn-danger"><i class="fa fa-trash"></i> </a>
+                            <a href="<?= base_url('jenis_kamar/edit/'.$value->jeniskamar_id) ?>" class="btn btn-xs btn-success"><i class="fa fa-pencil"></i> </a>
+                            <a href="<?= base_url('jenis_kamar/delete/'.$value->jeniskamar_id) ?>" onclick="return confirm('Apakah data ini akan dihapus ???')" class="btn btn-xs btn-danger"><i class="fa fa-trash"></i> </a>
                         </td>
                     </tr>
                     <?php }?>

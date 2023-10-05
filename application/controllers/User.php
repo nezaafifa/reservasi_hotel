@@ -4,6 +4,9 @@ class User extends CI_Controller {
     
     function __construct() {
         parent::__construct();
+        if(!$this->session->userdata('username')){
+            redirect('login');
+        }
         $this->load->library('form_validation');
         $this->load->model('m_user');
     }
@@ -16,6 +19,11 @@ class User extends CI_Controller {
         );
     $this->load->view('template/v_wrapper', $data,FALSE);
     }
+    /**
+     * fungsi password_hash sama dengan md5 
+     * atau Hash di laravel, fungsinya untuk mengenerate password
+     * agar lebih aman :)
+     */
     function add() {
 		$this->form_validation->set_rules('username', 'Username','required');
 		$this->form_validation->set_rules('password', 'Password','required');
@@ -42,7 +50,7 @@ class User extends CI_Controller {
         redirect('user');
         }
     }
-    function edit($id_user) {
+    function edit($user_id) {
 		$this->form_validation->set_rules('username', 'Username','required');
 		$this->form_validation->set_rules('password', 'Password','required');
 		$this->form_validation->set_rules('nama', 'Nama','required');
@@ -52,13 +60,13 @@ class User extends CI_Controller {
             $data = array(
                 'title' => 'Hotel Biru',
                 'title2' => 'Edit User',
-                'user' => $this->m_user->detail($id_user),
+                'user' => $this->m_user->detail($user_id),
                 'isi' => 'user/v_edit'
             );
             $this->load->view('template/v_wrapper', $data,FALSE);
         } else {
         $data = array(
-            'id_user' => $id_user,
+            'user_id' => $user_id,
             'username' => $this->input->post('username'),
             'password' => $this->input->post('password'),
             'nama' => $this->input->post('nama'),
@@ -69,9 +77,9 @@ class User extends CI_Controller {
         redirect('user');
         }
     }
-    function delete($id_user) {
+    function delete($user_id) {
         $data = array(
-            'id_user' => $id_user,
+            'user_id' => $user_id,
         );
         $this->m_user->delete($data);
         $this->session->set_flashdata('pesan', 'Data Berhasil Dihapus !!!');

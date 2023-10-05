@@ -4,6 +4,9 @@ class Jenis_kamar extends CI_Controller {
     
     function __construct() {
         parent::__construct();
+        if(!$this->session->userdata('username')){
+            redirect('login');
+        }
         $this->load->model('m_jenis_kamar');
     }
     function index() {
@@ -16,7 +19,7 @@ class Jenis_kamar extends CI_Controller {
     $this->load->view('template/v_wrapper', $data,FALSE);
     }
     function add() {
-		$this->form_validation->set_rules('nama_kamar', 'Nama Kamar','required');
+		$this->form_validation->set_rules('jeniskamar_nama', 'Nama Kamar','required');
 		$this->form_validation->set_rules('fasilitas', 'Fasilitas','required');
 
         if($this->form_validation->run() == FALSE) {
@@ -29,7 +32,7 @@ class Jenis_kamar extends CI_Controller {
             $this->load->view('template/v_wrapper', $data,FALSE);
         } else {
         $data = array(
-            'nama_kamar' => $this->input->post('nama_kamar'),
+            'jeniskamar_nama' => $this->input->post('jeniskamar_nama'),
             'fasilitas' => $this->input->post('fasilitas'),
         );
         $this->m_jenis_kamar->add($data);
@@ -37,22 +40,22 @@ class Jenis_kamar extends CI_Controller {
         redirect('jenis_kamar');
         }
     }
-    function edit($id_jeniskamar) { // Add the $id_jeniskamar parameter here
-        $this->form_validation->set_rules('nama_kamar', 'Nama Kamar', 'required');
+    function edit($jeniskamar_id) { // Add the $jeniskamar_id parameter here
+        $this->form_validation->set_rules('jeniskamar_nama', 'Nama Kamar', 'required');
         $this->form_validation->set_rules('fasilitas', 'Fasilitas', 'required');
     
         if ($this->form_validation->run() == FALSE) {
             $data = array(
                 'title' => 'Hotel Biru',
                 'title2' => 'Edit Jenis Kamar',
-                'jenis_kamar' => $this->m_jenis_kamar->detail($id_jeniskamar), // Use $id_jeniskamar here
+                'jenis_kamar' => $this->m_jenis_kamar->detail($jeniskamar_id), // Use $jeniskamar_id here
                 'isi' => 'jenis_kamar/v_edit'
             );
             $this->load->view('template/v_wrapper', $data, FALSE);
         } else {
             $data = array(
-                'id_jeniskamar' => $id_jeniskamar,
-                'nama_kamar' => $this->input->post('nama_kamar'),
+                'jeniskamar_id' => $jeniskamar_id,
+                'jeniskamar_nama' => $this->input->post('jeniskamar_nama'),
                 'fasilitas' => $this->input->post('fasilitas'),
             );
             $this->m_jenis_kamar->edit($data);
@@ -61,9 +64,9 @@ class Jenis_kamar extends CI_Controller {
         }
     }
     
-    function delete($id_jeniskamar) {
+    function delete($jeniskamar_id) {
         $data = array(
-            'id_jeniskamar' => $id_jeniskamar,
+            'jeniskamar_id' => $jeniskamar_id,
         );
         $this->m_jenis_kamar->delete($data);
         $this->session->set_flashdata('pesan', 'Data Berhasil Dihapus !!!');

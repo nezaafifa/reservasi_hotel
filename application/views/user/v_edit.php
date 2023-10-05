@@ -23,7 +23,7 @@
             </div>
             <!-- /.box-header -->
             <?php 
-            echo form_open_multipart('user/edit/'.$user->id_user);
+            echo form_open_multipart('user/edit/'.$user->user_id);
             ?>
             <!-- form start -->
               <div class="box-body">

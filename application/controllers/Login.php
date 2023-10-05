@@ -21,14 +21,14 @@ class Login extends CI_Controller {
 
             if ($user && password_verify($password, $user->password)) {
                 $data = array(
-                    'user_id' => $user->id_user,
+                    'user_id' => $user->user_id,
                     'username' => $user->username,
                     'nama' => $user->nama,
                     'alamat' => $user->alamat,
                     'logged_in' => TRUE
                 );
                 $this->session->set_userdata($data);
-                redirect('home'); // Ganti dengan URL yang sesuai
+                redirect('home'); 
             } else {
                 $this->session->set_flashdata('message', 'Login failed. Invalid username or password.');
                 redirect('login');

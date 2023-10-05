@@ -23,13 +23,13 @@
             </div>
             <!-- /.box-header -->
             <?php 
-            echo form_open_multipart('tamu/add');
+            echo form_open_multipart('tamu/add_tambah');
             ?>
             <!-- form start -->
               <div class="box-body">
                 <div class="form-group">
-                  <label for="nama_tamu">Nama Tamu</label>
-                  <input type="text" class="form-control" id="nama_tamu" name="nama_tamu" placeholder="Isi Nama Tamu" required>
+                  <label for="tamu_nama">Nama Tamu</label>
+                  <input type="text" class="form-control" id="tamu_nama" name="tamu_nama" placeholder="Isi Nama Tamu" required>
                 </div>
                 <div class="form-group">
                   <label for="jns_kelamin">Jenis Kelamin</label>
@@ -37,15 +37,15 @@
                 </div>
                 <div class="form-group">
                   <label for="warganegaraan">Warganegaraan</label>
-                  <input type="text" class="form-control" id="warganegaraan" name="warganegaraan" placeholder="Isi Warganegaraanerangan Makanan" required>
+                  <input type="text" class="form-control" id="warganegaraan" name="warganegaraan" placeholder="Isi wargenegaraan" required>
                 </div>
                 <div class="form-group">
                   <label for="alamat">Alamat</label>
                   <input type="text" class="form-control" id="alamat" name="alamat" placeholder="Isi Alamat" required>
                 </div>
                 <div class="form-group">
-                  <label for="tlp">Telepon</label>
-                  <input type="text" class="form-control" id="tlp" name="tlp" placeholder="Isi Telepon" required>
+                  <label for="no_tlp">Telepon</label>
+                  <input type="text" class="form-control" id="no_tlp" name="no_tlp" placeholder="Isi Telepon" required>
                 </div>
               </div>
               <!-- /.box-body -->

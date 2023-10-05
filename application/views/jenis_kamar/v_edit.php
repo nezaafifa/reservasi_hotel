@@ -23,13 +23,13 @@
             </div>
             <!-- /.box-header -->
             <?php 
-            echo form_open_multipart('jenis_kamar/edit/'.$jenis_kamar->id_jeniskamar);
+            echo form_open_multipart('jenis_kamar/edit/'.$jenis_kamar->jeniskamar_id);
             ?>
             <!-- form start -->
               <div class="box-body">
                 <div class="form-group">
                   <label for="nama_kamar">Nama Kamar</label>
-                  <input type="text" class="form-control" id="nama_kamar" name="nama_kamar" value="<?= $jenis_kamar->nama_kamar?>" required>
+                  <input type="text" class="form-control" id="jeniskamar_nama" name="jeniskamar_nama" value="<?= $jenis_kamar->jeniskamar_nama?>" required>
                 </div>
                 <div class="form-group">
                   <label for="fasilitas">Fasilitas</label>
