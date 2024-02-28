@@ -17,13 +17,14 @@
         <tr style="background-color: <?= $background ?>">
             <td class="text-center"><?= $i++ ?></td>
             <td class="text-center">
+                <a href="<?= site_url() . '/' . 'transaksi' . '/cetak_pdf_struk/' . @$value['transhotel_id'] ?>" target="_blank" class="btn btn-xs btn-table btn-warning"><i class="fa fa-fw fa-print"></i> </a>
                 <a href="javascript:void(0)" class="btn btn-primary btn-xs btn-table btn-edit" data-detail-id="<?= $row['detail_id'] ?>" data-transhotel-id="<?= $row['transhotel_id'] ?>" title="Ubah Data"><i class="fa fa-sm fa-pencil"></i></a>
                 <a href="javascript:void(0)" class="btn btn-danger btn-xs btn-table btn-delete" data-detail-id="<?= $row['detail_id'] ?>" data-transhotel-id="<?= $row['transhotel_id'] ?>" title="Hapus Data"><i class="fa fa-sm fa-trash"></i></a>
             </td>
             <td class="text-left">
                 <?= $row['tamu_nama'] ?><br>
             </td>
-            <td class="text-left"><?= $row['kamar_nama'] ?></td>
+            <td class="text-left"><?= $row['kamar_no'] ?></td>
             <td class="text-left"><?= $row['jeniskamar_nama'] ?></td>
             <td class="text-right"><?= number_format(@$row['total_biaya'], '2', ',', '.') ?></td>
         </tr>

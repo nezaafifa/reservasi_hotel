@@ -23,7 +23,7 @@
             </div>
             <!-- /.box-header -->
             <?php 
-            echo form_open_multipart('jenis_kamar/add');
+            echo form_open_multipart('jenis_kamar/add_tambah');
             ?>
             <!-- form start -->
               <div class="box-body">
@@ -35,11 +35,15 @@
                   <label for="fasilitas">Fasilitas</label>
                   <input type="text" class="form-control" id="fasilitas" name="fasilitas" placeholder="Isi Fasilitas" required>
                 </div>
+                <div class="form-group">
+                  <label>Gambar</label><br>
+                  <input type="file" name="gambar" id="gambar" class="form-control">
+                </div>
               </div>
               <!-- /.box-body -->
 
               <div class="box-footer">
-                    <button type="submit" class="btn btn-primary">Simpan</button>
+                    <button id="del" type="submit" class="btn btn-primary">Simpan</button>
                     <button type="reset" class="btn btn-success">Reset</button>
               </div>
             <?php echo form_close(); ?>

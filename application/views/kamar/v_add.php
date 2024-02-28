@@ -28,6 +28,10 @@
             <!-- form start -->
               <div class="box-body">
                 <div class="form-group">
+                  <label for="kamar_no">No Kamar</label>
+                  <input type="text" class="form-control" id="kamar_no" name="kamar_no" placeholder="Isi No Kamar" required>
+                </div>
+                <div class="form-group">
                   <label for="jeniskamar_id">Nama Jenis Kamar</label>
                   <select name="jeniskamar_id" class="form-control">
                         <option value="">-- pilih Nama Jenis Kamar --</option>

@@ -23,7 +23,7 @@
             </div>
             <!-- /.box-header -->
             <?php 
-            echo form_open_multipart('jenis_kamar/edit/'.$jenis_kamar->jeniskamar_id);
+            echo form_open_multipart('jenis_kamar/edit_jenis/'.$jenis_kamar->jeniskamar_id);
             ?>
             <!-- form start -->
               <div class="box-body">
@@ -37,6 +37,13 @@
                 </div>
               </div>
               <!-- /.box-body -->
+              <div class="form-group">
+                <img src="<?= base_url('gambar/'.$jenis_kamar->gambar)?>" width="100px">
+              </div>
+              <div class="form-group">
+                <label for="gambar">Gambar</label>
+                <input class="form-control" type="file"  id="gambar" name="gambar" value="<?= $jenis_kamar->gambar?>">
+              </div>
 
               <div class="box-footer">
                     <button type="submit" class="btn btn-primary">Simpan</button>

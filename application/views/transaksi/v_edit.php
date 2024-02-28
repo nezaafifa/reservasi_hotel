@@ -127,7 +127,7 @@
                     <th class="text-center text-middle" width="20">No</th>
                     <th class="text-center text-middle" width="80">Aksi</th>
                     <th class="text-center text-middle" width="100">Nama Tamu</th>
-                    <th class="text-center text-middle" width="100">Nama Kamar</th>
+                    <th class="text-center text-middle" width="100">No Kamar</th>
                     <th class="text-center text-middle" width="100">Jenis Kamar</th>
                     <th class="text-center text-middle" width="100">Total Biaya</th>
                   </tr>
@@ -270,7 +270,7 @@
         dataType: "json",
         data: function(params) {
           return {
-            kamar_nm: params.term
+            kamar_no: params.term
           }
         },
         processResults: function(data) {

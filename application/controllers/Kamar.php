@@ -21,6 +21,7 @@ class Kamar extends CI_Controller {
     }
     function add() {
 		$this->form_validation->set_rules('jeniskamar_id', 'Nama Kamar','required');
+        $this->form_validation->set_rules('kamar_no', 'kamar_no','required');
         $this->form_validation->set_rules('harga', 'Harga','required');
 
         if($this->form_validation->run() == FALSE) {
@@ -35,6 +36,7 @@ class Kamar extends CI_Controller {
         } else {
         $data = array(
             'jeniskamar_id' => $this->input->post('jeniskamar_id'),
+            'kamar_no' => $this->input->post('kamar_no'),
             'harga' => $this->input->post('harga'),
         );
         $this->m_kamar->add($data);

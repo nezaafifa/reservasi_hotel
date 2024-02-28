@@ -23,7 +23,7 @@
             </div>
             <!-- /.box-header -->
             <?php 
-            echo form_open_multipart('user/add');
+            echo form_open_multipart('user/add_tambah');
             ?>
             <!-- form start -->
               <div class="box-body">
@@ -42,6 +42,10 @@
                 <div class="form-group">
                   <label for="alamat">Alamat</label>
                   <input type="text" class="form-control" id="alamat" name="alamat" placeholder="Isi Alamat" required>
+                </div>
+                <div class="form-group">
+                  <label>TTD</label><br>
+                  <input type="file" name="ttd" id="ttd" class="form-control">
                 </div>
               </div>
               <!-- /.box-body -->

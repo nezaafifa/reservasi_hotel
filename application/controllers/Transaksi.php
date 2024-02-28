@@ -80,8 +80,8 @@ class Transaksi extends CI_Controller
     public function ajax($type = null, $id = null)
     {
         if ($type == 'kamar_cek') {
-            $kamar_nm = $this->input->get('kamar_nm');
-            $res = $this->m_transaksi->get_kamar($kamar_nm);
+            $kamar_no = $this->input->get('kamar_no');
+            $res = $this->m_transaksi->get_kamar($kamar_no);
             echo json_encode($res);
         } else if($type == 'tamu_autocomplete') {
             $tamu_nm = $this->input->get('tamu_nm');

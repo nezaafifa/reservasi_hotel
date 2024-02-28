@@ -30,6 +30,10 @@
             <!-- form start -->
               <div class="box-body">
                 <div class="form-group">
+                  <label for="kamar_no">No Kamar</label>
+                  <input type="text" class="form-control" id="kamar_no" name="kamar_no" value="<?= $kamar->kamar_no?>" required>
+                </div>
+                <div class="form-group">
                   <label for="jeniskamar_id">Nama Kamar</label>
                   <select name="jeniskamar_id" class="form-control" >
                         <option value="<?= $kamar->jeniskamar_id?>"><?= $kamar->jeniskamar_nama?></option>

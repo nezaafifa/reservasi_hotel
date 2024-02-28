@@ -43,16 +43,16 @@ class M_transaksi extends CI_Model
         $this->db->where('transhotel_id', $data['transhotel_id']);
         $this->db->delete('trans_hotel', $data);
     }
-    public function get_kamar($kamar_nm)
+    public function get_kamar($kamar_no)
     {
-        $sql = "SELECT a.*,b.jeniskamar_nama FROM kamar a LEFT JOIN jenis_kamar b on a.jeniskamar_id = b.jeniskamar_id WHERE b.jeniskamar_nama LIKE '%$kamar_nm%'";
+        $sql = "SELECT a.*,b.jeniskamar_nama FROM kamar a LEFT JOIN jenis_kamar b on a.jeniskamar_id = b.jeniskamar_id WHERE b.jeniskamar_nama LIKE '%$kamar_no%'";
         $query = $this->db->query($sql);
         $result = $query->result_array();
         $res = array();
         foreach ($result as $row) {
             $res[] = array(
                 'id' => @$row['kamar_id'],
-                'text' => @$row['kamar_nama'] . '-' . float_id(@$row['harga']),
+                'text' => @$row['kamar_no'] . '-' . float_id(@$row['harga']),
                 'harga' => @$row['harga'],
             );
         }
@@ -102,7 +102,7 @@ class M_transaksi extends CI_Model
             "SELECT
               a.*,
               b.tamu_nama,
-              c.kamar_nama,
+              c.kamar_no,
               d.jeniskamar_nama
              FROM
               trans_hotel_detail a

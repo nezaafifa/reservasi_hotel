@@ -36,31 +36,31 @@
 
             <!-- /.box-header -->
             <div class="box-body">
-              <table id="example2" class="table table-bordered table-hover">
+              <table id="example1" class="table table-bordered table-hover">
                 <thead>
                     <tr>
+                        <th>Action</th>
                         <th>No.</th>
                         <th>Nama Pembooking</th>
                         <th>Tanggal Checkin</th>
                         <th>Tanggal Checkout</th>
                         <th>Lama Inap</th>
                         <th>Petugas</th>
-                        <th>Action</th>
                     </tr>
                 </thead>
                 <tbody>
                 <?php $no=1; foreach ($transaksi as $key => $value) { ?>
                     <tr>
+                        <td>
+                            <a href="<?= base_url('transaksi/edit/'.$value['transhotel_id']) ?>" class="btn btn-sm btn-outline-success"><i class="fa fa-fw fa-eye"></i> </a>
+                            <a href="<?= base_url('transaksi/delete/'.$value['transhotel_id'])?>"  class="btn btn-sm btn-outline-danger"><i class="fa fa-fw fa-trash"></i></a>
+                        </td>
                         <td><?= $no++ ?></td>
                         <td><?= $value['pembooking_nm']?></td>
                         <td><?= to_date($value['checkin_tgl'],'','full_date')?></td>
                         <td><?= to_date($value['checkout_tgl'],'','full_date')?></td>
                         <td><?= $value['lama_inap']?></td>
-                          <td><?= $value['petugas_nm']?></td>
-                        <td>
-                            <a href="<?= base_url('transaksi/edit/'.$value['transhotel_id']) ?>" class="btn btn-xs btn-success"><i class="fa fa-pencil fa fa-eye"></i> </a>
-                            <a href="<?= base_url('transaksi/delete/'.$value['transhotel_id'])?>" class="btn btn-danger btn-xs"><i class="fa fa-sm fa-trash"></i></a>
-                        </td>
+                        <td><?= $value['petugas_nm']?></td>
                     </tr>
                     <?php }?>
                 </tbody>

@@ -35,25 +35,27 @@
 
             <!-- /.box-header -->
             <div class="box-body">
-              <table id="example2" class="table table-bordered table-hover">
+              <table id="example1" class="table table-bordered table-hover">
                 <thead>
                     <tr>
+                        <th>Action</th>
                         <th>No.</th>
                         <th>Nama Kamar</th>
                         <th>Fasilitas</th>
-                        <th>Action</th>
+                        <th>Gambar</th>
                     </tr>
                 </thead>
                 <tbody>
                 <?php $no=1; foreach ($jenis_kamar as $key => $value) { ?>
                     <tr>
+                        <td>
+                            <a href="<?= base_url('jenis_kamar/edit/'.$value->jeniskamar_id) ?>" class="btn btn-sm btn-outline-success"><i class="fa fa-fw fa-pencil"></i> </a>
+                            <a href="<?= base_url('jenis_kamar/delete/'.$value->jeniskamar_id) ?>" onclick="return confirm('Apakah data ini akan dihapus ???')" class="btn btn-sm btn-outline-danger"><i class="fa fa-fw fa-trash"></i> </a>
+                       </td>
                         <td><?= $no++ ?></td>
                         <td><?= $value->jeniskamar_nama?></td>
                         <td><?= $value->fasilitas?></td>
-                        <td>
-                            <a href="<?= base_url('jenis_kamar/edit/'.$value->jeniskamar_id) ?>" class="btn btn-xs btn-success"><i class="fa fa-pencil"></i> </a>
-                            <a href="<?= base_url('jenis_kamar/delete/'.$value->jeniskamar_id) ?>" onclick="return confirm('Apakah data ini akan dihapus ???')" class="btn btn-xs btn-danger"><i class="fa fa-trash"></i> </a>
-                        </td>
+                        <td><img src="<?= base_url('gambar/'.$value->gambar) ?>" width="100px"></td>
                     </tr>
                     <?php }?>
                 </tbody>

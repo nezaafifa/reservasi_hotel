@@ -217,7 +217,7 @@
         dataType: "json",
         data: function(params) {
           return {
-            kamar_nm: params.term
+            kamar_no: params.term
           }
         },
         processResults: function(data) {

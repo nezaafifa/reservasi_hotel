@@ -23,7 +23,7 @@
             </div>
             <!-- /.box-header -->
             <?php 
-            echo form_open_multipart('user/edit/'.$user->user_id);
+            echo form_open_multipart('user/edit_user/'.$user->user_id);
             ?>
             <!-- form start -->
               <div class="box-body">
@@ -42,6 +42,13 @@
                 <div class="form-group">
                   <label for="alamat">Alamat</label>
                   <input type="text" class="form-control" id="alamat" name="alamat" value="<?= $user->alamat?>" required>
+                </div>
+                <div class="form-group">
+                  <img src="<?= base_url('ttd/'.$user->ttd)?>" width="100px">
+                </div>
+                <div class="form-group">
+                  <label for="ttd">TTD</label>
+                  <input class="form-control" type="file"  id="ttd" name="ttd" value="<?= $user->ttd?>">
                 </div>
               </div>
               <!-- /.box-body -->

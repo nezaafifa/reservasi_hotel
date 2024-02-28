@@ -36,25 +36,27 @@
 
             <!-- /.box-header -->
             <div class="box-body">
-              <table id="example2" class="table table-bordered table-hover">
+              <table id="example1" class="table table-bordered table-hover">
                 <thead>
                     <tr>
-                        <th>No.</th>
-                        <th>Nama Kamar</th>
-                        <th>Harga</th>
                         <th>Action</th>
+                        <th>No.</th>
+                        <th>No Kamar</th>
+                        <th>Tipe Kamar</th>
+                        <th>Harga</th>
                     </tr>
                 </thead>
                 <tbody>
                 <?php $no=1; foreach ($kamar as $key => $value) { ?>
                     <tr>
+                        <td>
+                            <a href="<?= base_url('kamar/edit/'.$value->kamar_id) ?>" class="btn btn-sm btn-outline-success"><i class="fa fa-fw fa-pencil"></i> </a>
+                            <a href="<?= base_url('kamar/delete/'.$value->kamar_id) ?>" onclick="return confirm('Apakah data ini akan dihapus ???')" class="btn btn-sm btn-outline-danger"><i class="fa fa-fw fa-trash"></i> </a>
+                        </td>
                         <td><?= $no++ ?></td>
+                        <td><?= $value->kamar_no?></td>
                         <td><?= $value->jeniskamar_nama?></td>
                         <td><?= $value->harga?></td>
-                        <td>
-                            <a href="<?= base_url('kamar/edit/'.$value->kamar_id) ?>" class="btn btn-xs btn-success"><i class="fa fa-pencil"></i> </a>
-                            <a href="<?= base_url('kamar/delete/'.$value->kamar_id) ?>" onclick="return confirm('Apakah data ini akan dihapus ???')" class="btn btn-xs btn-danger"><i class="fa fa-trash"></i> </a>
-                        </td>
                     </tr>
                     <?php }?>
                 </tbody>
