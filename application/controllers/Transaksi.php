@@ -123,4 +123,13 @@ class Transaksi extends CI_Controller
             ));
         } 
     }
+
+    public function cetak_pdf_struk($transhotel_id = '', $detail_id= '')
+	{
+		$data['main'] = $this->m_transaksi->transaksi_kamar_get($detail_id, $transhotel_id);
+		$this->load->library('pdf');
+		$this->pdf->setPaper('A4', 'potrait');
+		$this->pdf->filename = "struk-cetak.pdf";
+		$this->pdf->load_view('transaksi/cetak_struk', $data);
+	}
 }

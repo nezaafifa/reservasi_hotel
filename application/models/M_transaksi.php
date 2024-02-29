@@ -154,14 +154,20 @@ class M_transaksi extends CI_Model
             "SELECT
                 a.*,
                 b.tamu_nama,
-                c.kamar_nama,
+                c.kamar_no,
                 c.harga
              FROM 
                 trans_hotel_detail a
              LEFT JOIN 
                 tamu b ON a.tamu_id = b.tamu_id
              LEFT JOIN 
-                kamar c ON a.kamar_id = c.kamar_id"
+                kamar c ON a.kamar_id = c.kamar_id
+            LEFT JOIN 
+                trans_hotel d ON a.transhotel_id = d.transhotel_id
+            WHERE
+              a.detail_id = '" . @$detail_id . "'
+            AND
+              d.transhotel_id = '" . @$transhotel_id . "'"
         )->row_array();
     }
 
