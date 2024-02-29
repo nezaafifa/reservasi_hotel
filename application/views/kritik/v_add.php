@@ -23,21 +23,17 @@
             </div>
             <!-- /.box-header -->
             <?php 
-            echo form_open_multipart('menu/add');
+            echo form_open_multipart('kritik/add');
             ?>
             <!-- form start -->
               <div class="box-body">
                 <div class="form-group">
-                  <label for="nama_makanan">Nama Makanan</label>
-                  <input type="text" class="form-control" id="nama_makanan" name="nama_makanan" placeholder="Isi Nama Makanan" required>
+                  <label for="saran">Saran</label>
+                  <input type="text" class="form-control" id="saran" name="saran" placeholder="Isi Saran" required>
                 </div>
                 <div class="form-group">
-                  <label for="harga">Harga</label>
-                  <input type="text" class="form-control" id="harga" name="harga" placeholder="Isi Harga Menu" required>
-                </div>
-                <div class="form-group">
-                  <label for="ket">Keterangan</label>
-                  <input type="text" class="form-control" id="keterangan" name="keterangan" placeholder="Isi Keterangan Makanan" required>
+                  <label for="kritik">Kritik</label>
+                  <input type="text" class="form-control" id="kritik" name="kritik" placeholder="Isi Kritik" required>
                 </div>
               </div>
               <!-- /.box-body -->

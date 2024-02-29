@@ -34,7 +34,7 @@ class M_kamar extends CI_Model {
     }
     public function HitungTransaksi()
     {
-        $this->db->from('trans_hotel_detail');
+        $this->db->from('trans_hotel');
         return $this->db->count_all_results();
     }
     public function HitungSelisihKamarTransaksi()

@@ -18,10 +18,10 @@
       <div class="col-xs-12">
           <div class="box">
             <div class="box-header">
-              <h3 class="box-title"> Data Menu</h3>
+              <h3 class="box-title"> Data kritik</h3>
             </div>
             <div class="panel-heading">
-                <a href="<?= base_url('menu/add') ?>" class="btn btn-primary btn-sm"><i class="fa fa-plus"></i> Add</a>
+                <a href="<?= base_url('kritik/add') ?>" class="btn btn-primary btn-sm"><i class="fa fa-plus"></i> Add</a>
             </div>
 
             <?php 
@@ -38,24 +38,22 @@
               <table id="example2" class="table table-bordered table-hover">
                 <thead>
                     <tr>
-                        <th>No.</th>
-                        <th>Nama Makanan</th>
-                        <th>Harga</th>
-                        <th>Keterangan</th>
                         <th>Action</th>
+                        <th>No.</th>
+                        <th>Saran</th>
+                        <th>Kritik</th>
                     </tr>
                 </thead>
                 <tbody>
-                <?php $no=1; foreach ($menu as $key => $value) { ?>
+                <?php $no=1; foreach ($kritik as $key => $value) { ?>
                     <tr>
-                        <td><?= $no++ ?></td>
-                        <td><?= $value->nama_makanan?></td>
-                        <td><?= $value->harga?></td>
-                        <td><?= $value->keterangan?></td>
                         <td>
-                            <a href="<?= base_url('menu/edit/'.$value->menu_id) ?>" class="btn btn-xs btn-success"><i class="fa fa-pencil"></i> </a>
-                            <a href="<?= base_url('menu/delete/'.$value->menu_id) ?>" onclick="return confirm('Apakah data ini akan dihapus ???')" class="btn btn-xs btn-danger"><i class="fa fa-trash"></i> </a>
+                            <a href="<?= base_url('kritik/edit/'.$value->kritik_id) ?>" class="btn btn-sm btn-outline-success"><i class="fa fa-fw fa-pencil"></i> </a>
+                            <a href="<?= base_url('kritik/delete/'.$value->kritik_id)?>" onclick="return confirm('Apakah data ini akan dihapus ???')" class="btn btn-sm btn-outline-danger"><i class="fa fa-fw fa-trash"></i></a>
                         </td>
+                        <td><?= $no++ ?></td>
+                        <td><?= $value->saran?></td>
+                        <td><?= $value->kritik?></td>
                     </tr>
                     <?php }?>
                 </tbody>

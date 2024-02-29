@@ -26,7 +26,7 @@
       <ul class="sidebar-menu" data-widget="tree">
         <li class="header">MAIN NAVIGATION</li>
         <li><a href="<?= base_url('/');?>"><i class="fa fa-fw fa-dashboard"></i> Dashboard</a></li>
-        <li><a href="<?= base_url('menu');?>"><i class="fa fa-fw fa-solid fa-bars"></i> Menu Resto</a></li>
+        <li><a href="<?= base_url('kritik');?>"><i class="fa fa-fw fa-solid fa-bars"></i> Kritik dan Saran</a></li>
         <li>
           <a href="<?= base_url('jenis_kamar')?>">
             <i class="fa fa-fw fa-solid fa-bed"></i> <span>Jenis Kamar</span>

@@ -53,7 +53,7 @@
                     <tr>
                         <td>
                             <a href="<?= base_url('transaksi/edit/'.$value['transhotel_id']) ?>" class="btn btn-sm btn-outline-success"><i class="fa fa-fw fa-eye"></i> </a>
-                            <a href="<?= base_url('transaksi/delete/'.$value['transhotel_id'])?>"  class="btn btn-sm btn-outline-danger"><i class="fa fa-fw fa-trash"></i></a>
+                            <a href="<?= base_url('transaksi/delete/'.$value['transhotel_id'])?>" onclick="return confirm('Apakah data ini akan dihapus ???')" class="btn btn-sm btn-outline-danger"><i class="fa fa-fw fa-trash"></i></a>
                         </td>
                         <td><?= $no++ ?></td>
                         <td><?= $value['pembooking_nm']?></td>
